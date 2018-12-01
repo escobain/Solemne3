@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <title>Adoptantes</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <h1 class="mt-2">Adoptantes</h1>
+                <hr class="mt-0 mb-4">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+    <h2>Bienvenido {{nombre}}</h2>
+    <div class="Informacion">
+
+        <p>Tu dirección IP es: {{ip}} </p>
+        <p>Tu País es: {{país}} </p>
+        <p>Tu Continente es: {{continente}} </p>
+        <p>Tu Ciudad es: {{ciudad}} </p>
+        <p>Tu Región es: {{region}} </p>
+        <script type="text/javascript">
+            var d = new Date();
+            document.write('Hora Actual: ' + d.getHours() + ':' + d.getMinutes());
+        </script>
+
+    </div>
+
+    <br>
+
+    <h3>Lista de Adoptantes: </h3>
+    <br>
+
+
+    <br>
+    <div class="lista">
+        <ul>
+            {%for e in elementos%}
+            <li>{{e.run}} - {{e.nombre}} - {{e.correo}} <a href="registro/buscar/{{e.run}}">Ver</a>
+                <a href="registro/eliminar/{{e.run}}">Eliminar</a>
+                <a href="registro/editar/{{e.run}}">Editar</a> </li>
+            {%endfor%}
+
+        </ul>
+    </div>
+    <br>
+    <div><button onclick="window.location='http://127.0.0.1:8000/registro'">Agregar un Adoptante</button></div>
+
+    <br>
+
+
+    <div><button onclick="window.location='http://127.0.0.1:8000'">Actualizar Página</button></div>
+
+
+
+
+
+</body>
+
+</html>
